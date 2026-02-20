@@ -39,3 +39,19 @@ function setButtonText(heart, button) {
     );
   }
 }
+
+// Находим нужные элементы
+const dialog = document.getElementById('modal');
+const openDialogBtn = document.querySelector('.button--save'); // Укажи тут актуальный класс твоей кнопки сохранения
+const dialogForm = document.getElementById('form-modal');
+
+// Открываем модальное окно по клику на кнопку "Сохранить на память"
+openDialogBtn.addEventListener('click', () => {
+  dialog.showModal();
+});
+
+// Перехватываем отправку формы при нажатии на кнопку "ОК"
+dialogForm.addEventListener('submit', (event) => {
+  event.preventDefault(); // Строго запрещаем браузеру перезагружать страницу
+  dialog.close();         // Закрываем модальное окно вручную
+});
